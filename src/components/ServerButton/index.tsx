@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Logo from "../../assets/Logo.svg";
+
 import { Button } from './styles'
 
 export interface Props{
@@ -16,8 +18,13 @@ const ServerButton: React.FC<Props> = ({
     mentions
 }) => {
     return (
-        <Button>
-            {isHome}
+        <Button
+            isHome={isHome}
+            hasNotifications={hasNotifications}
+            mentions={mentions}
+            className={selected ? 'active' : ''}
+        >
+            {isHome && <img src={Logo} alt="Rocketseat"/> }
         </Button>
     )
 };
